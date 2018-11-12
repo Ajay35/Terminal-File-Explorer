@@ -1,0 +1,74 @@
+This README file is inteneted to explain the functionalities present in terminal based file explorer and the assumption made while
+implementing those.
+
+This document has the following structure:
+1. Function name 
+2. Function description
+3. Assumptions
+
+
+/---------------------------------------------------------Normal Mode------------------------------------------------------------------/
+
+A.
+
+	1. Diplay directory of root folder (default if not provided). 
+	2. File explorer shows each file in the directory (one entry per line). The following attributes are be visible for each file
+			i.File Name
+			ii.File size (in B)
+			iii.Ownership (User & Group) & Permissions
+			iv. Last modified (month time in hr:min:ss)
+		scrolling is also handled in case where files are more than 20(fixed) in directory.
+	3.Path provided by user should be absolute while executing the application.
+
+B.	
+
+	1.Open files & directories.
+	2. Files and directory have different handling when enter is pressed (for files default application is opened and fordirectory, list out the files)
+		Files- File explorer is able to open files using the corresponding default application using mimelist and and default application.
+	3.For files with type .cpp default.ist has entry as ubuntu.sdk(This entry should be gedit.desktop if not file explorer does not open files and
+		simply ignores the enter key press)
+C
+	1.Traversal using arrow keys.
+	2. Directories are traversed 
+			right arrow key takes forward in diretory onluy if it is already visited.
+			Left arrow key and backspace work same taking back into direcotry if visited.
+	3. No assumptions.
+
+	
+/---------------------------------------------------------Command Mode-------------------------------------------------------------------------/
+
+
+A.
+	1.Copy,Move,rename.
+	2.copy files when provide a relative path from root directory of application. format of path is e.g [a-zA-Z]/[a-zA-z]/.....
+	3.Assumed destination directory exists and you have write permissions.Files with special permissoins are not handled
+		also when while copying file overwrrites file at destination if it preexists with same file name.
+		
+B. 
+	1. Create File,Create Directory,Delet file ,delete directory.
+	2. Create file and directory execute the command when path given is relative just as give for copy,move ,rename.
+	3. Assumed destination directory exists and you have write permissions.Files with special permissoins are not handled
+	   also when while copying to destinaion,file is overwritten if it pre-exists with same name.
+C.  
+	1.Goto 
+	2. Goto pathname take user to typed path which is abolute.Files and directory diplayed if path is valid or error is displayed.
+	3. It is to note that to return from goto mode user has to press button 'h' to return home (root directory).
+D.
+	1.Search
+	2.Search recursively looks for paths of all files with given name,file explorer only looks from root directory of an application.
+	3.Saerch functionality is losely implemented i.e scrolling is not enabled if one of the search result path is opened.
+		To exit search page pressing 'h' key is necessary.
+
+E.
+	1.Snapshot
+	2. when user gives absolute path of a directory all directory structure os recursively looked up and the this structure is written 
+		in dump file in application root directory.
+	3.------
+
+
+To-do:	
+	Pressing arrow keys and escape keys is comfusing the application since it is not handled properly both in normal mode and command mode.
+<<<<<<< HEAD
+
+=======
+>>>>>>> 821a0a2929c64e794c2f2157385c664598546f0a
